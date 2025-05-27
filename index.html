@@ -101,10 +101,20 @@
 
       <button type="submit">Calcular</button>
     </form>
+    
+    <!-- == Cabeçalho de impressão (só aparece no print) == -->
+   <div id="print-header" class="print-only">
+         <p id="text_report">Relatório com gratificações, descontos e totais calculados pelo GranaCheck.</p>
+         <p id="print-date"></p>
+       </div>
 
     <section id="resultados">
       <!-- Os resultados serão inseridos aqui dinamicamente pelo app.js -->
     </section>
+        <!-- NOVO: controle de impressão -->
+        <div class="print-control">
+            <button type="button" id="print-btn">Imprimir</button>
+          </div>      
   </main>
 
   <footer class="footer">
