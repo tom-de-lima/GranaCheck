@@ -3,127 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Remuneração Servidor</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Bem-vindo ao GranaCheck</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
-  <main class="container">
-    <h1>🤖GranaCheck💸 - Seu Personal RH</h1>
-    <h2>Descubra antes de levar um banho!😥</h2>
+<body class="landing">
+  <div class="landing-container">
+    <h1>Bem-vindo ào GranaCheck</h1>
+    <h3>Atualizado para Versão: <u>v1.2.0</u></h3>
+    <br>
+    <p class="itensV">+ Apresentação de Termos e Políticas de Uso;</p>
+    <p class="itensV">+ Novas Funcionalidades.</p>
+    <img src="/Icon-removebg-preview.png" alt="Logo GranaCheck">
+    <p>
+        Este aplicativo foi desenvolvido exclusivamente para auxiliar os servidores públicos da Guarda Civil Municipal de Santa Cruz do Capibaribe (GCM de SCC) no cálculo de sua remuneração, de forma rápida, precisa e confiável, prevenindo surpresas desagradáveis que costumam ocorrer com frequência no pagamento ao final do mês.
+    </p>
+    <p>
+       Os resultados são calculados com base na legislação municipal vigente e, durante os testes, o sistema apresentou uma margem de precisão de aproximadamente <strong>±R$0,09.</strong> Essa variação pode ocorrer devido às diferenças nos critérios de arredondamento utilizados pelo GranaCheck e aqueles aplicados na planilha do setor de Recursos Humanos. <u>Como orientação, recomenda-se que o servidor consulte o setor de Recursos Humanos para verificar os valores lançados antes do fechamento da folha de pagamento. Essa prática contribui para evitar surpresas, descontos indevidos ou registros incorretos de faltas em sua remuneração. </u>
+    </p>
 
-    <form id="remuneracao-form">
-      <div class="field">
-        <label for="baseAtual">Salário Base Atual (R$)</label>
-        <select id="baseAtual" name="baseAtual" required>
-          <option value="2.083,54">2.083,54</option>
-          <option value="2.003,40">2.003,40</option>
-        </select>
+
+    <div class="aviso">
+        <p><strong>Aviso Legal</strong></p>
+        <p>
+          O aplicativo GranaCheck foi desenvolvido com o objetivo de auxiliar servidores públicos na conferência estimada de sua remuneração, com base na legislação municipal vigente e nas informações fornecidas pelo próprio usuário. Apesar dos esforços para garantir precisão e confiabilidade nos cálculos, o desenvolvedor do aplicativo <strong>não se responsabiliza por eventuais divergências entre os valores calculados e aqueles efetivamente pagos</strong>, tampouco por prejuízos decorrentes de interpretações incorretas, atrasos na atualização das normas legais ou falhas no fornecimento de dados. Recomenda-se que todos os resultados obtidos por meio deste aplicativo sejam <strong>confirmados junto ao setor de Recursos Humanos da instituição</strong>, especialmente antes de tomadas de decisão com impacto financeiro. Ao utilizar este aplicativo, o usuário declara estar ciente de que o GranaCheck se trata de uma ferramenta de apoio e <strong>não substitui documentos oficiais, sistemas institucionais nem pareceres técnicos emitidos por órgãos competentes.</strong>
+        </p>
+      
       </div>
+      
 
-      <div class="field">
-        <label for="plantoes">Quantidade de Plantões</label>
-        <select id="plantoes" name="plantoes" required>
-          <option value="7">7 plantões</option>
-          <option value="8">8 plantões</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="escolaridade">Escolaridade</label>
-        <select id="escolaridade" name="escolaridade" required>
-          <option value="1">Sem ensino superior</option>
-          <option value="2">Graduação</option>
-          <option value="3">Pós-graduação</option>
-          <option value="4">Mestrado/Doutorado</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="quinquenio">Quantidade de Quinquênios</label>
-        <input type="number" id="quinquenio" name="quinquenio" min="0" value="0" />
-      </div>
-
-      <div class="field">
-        <label for="especializacao">Serviço Especializado</label>
-        <select id="especializacao" name="especializacao">
-          <option value="0">Nenhum</option>
-          <option value="15">15%</option>
-          <option value="25">25%</option>
-        </select>
-      </div>
-
-      <!-- Serviços extras -->
-      <div class="field">
-        <label for="extra24">Serviço Extra 24h (cotas)</label>
-        <input type="number" id="extra24" name="extra24" min="0" value="0" />
-      </div>
-
-      <div class="field">
-        <label for="extra10diurno">Serviço Extra 10h Diurno (cotas)</label>
-        <input type="number" id="extra10diurno" name="extra10diurno" min="0" value="0" />
-      </div>
-
-      <div class="field">
-        <label for="extra10noturno">Serviço Extra 10h Noturno (cotas)</label>
-        <input type="number" id="extra10noturno" name="extra10noturno" min="0" value="0" />
-      </div>
-
-      <div class="field">
-        <label for="extraFestivo">Serviço Extra Festivo (cotas)</label>
-        <input type="number" id="extraFestivo" name="extraFestivo" min="0" value="0" />
-      </div>
-
-      <div class="field">
-        <label for="valorExtraFestivo">Valor Extra Festivo (R$)</label>
-        <input type="text" id="valorExtraFestivo" name="valorExtraFestivo" placeholder="0,00" />
-      </div>
-
-      <!-- Dependentes IR -->
-      <div class="field">
-        <label for="dependentes">Dependentes (IR)</label>
-        <input type="number" id="dependentes" name="dependentes" min="0" value="0" />
-      </div>
-
-      <!-- Sindicato -->
-      <div class="field">
-        <label for="sindicalizado">Sindicalizado?</label>
-        <select id="sindicalizado" name="sindicalizado">
-          <option value="0">Não</option>
-          <option value="1">Sim</option>
-        </select>
-      </div>
-
-      <!-- Descontos individuais -->
-      <div class="field">
-        <label for="outrosDescontos">Descontos Individuais (R$)</label>
-        <input type="text" id="outrosDescontos" name="outrosDescontos" placeholder="0,00" />
-      </div>
-
-      <button type="submit">Calcular</button>
-    </form>
-    
-    <!-- == Cabeçalho de impressão (só aparece no print) == -->
-   <div id="print-header" class="print-only">
-         <p id="text_report">Relatório com gratificações, descontos e totais calculados pelo GranaCheck.</p>
-         <p id="print-date"></p>
-       </div>
-
-    <section id="resultados">
-      <!-- Os resultados serão inseridos aqui dinamicamente pelo app.js -->
-    </section>
-        <!-- NOVO: controle de impressão -->
-        <div class="print-control">
-            <button type="button" id="print-btn">Imprimir</button>
-          </div>      
-  </main>
-
-  <footer class="footer">
-    <p><u><b>Lima Neto</b></u> - Engenheiro de software responsável pela elaboração aplicativo. Supervisão e execução da codificação, lógica e interface</p>
-    <p><u><b>Saulo do TDAH</b></u> - Responsável pela disponibilização e revisão de fórmulas matemáticas</p>
-    <p><u><b>Satya</b></u> - Analista e Desenvolvedora de Sistemas. Responsável pela execução, revisão e debug do código</p>
-    <p>Contato: <a href="mailto:antoniojosedelimaneto@gmail.com">antoniojosedelimaneto@gmail.com</a></p>
-  </footer>
-
-  <script src="app.js" defer></script>
+    <a href="page1.html" class="btn-landing">Continuar</a>
+  </div>
 </body>
 </html>
