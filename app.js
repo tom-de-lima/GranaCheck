@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const baseInicial = 1890.0
-  document.querySelector(".print-control").style.display = "none"
   const form = document.getElementById("remuneracao-form")
   const resultados = document.getElementById("resultados")
 
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Adiciona listener de input para cada campo que precisa de máscara
-  ;[inputValorExtraFestivo, inputOutrosDescontos].forEach((input) => {
+  [inputValorExtraFestivo, inputOutrosDescontos].forEach((input) => {
     input.addEventListener("input", (e) => {
       const v = e.target.value.replace(/\D/g, "")
       e.target.value = formatter.format(Number(v) / 100)
@@ -189,30 +188,28 @@ document.addEventListener("DOMContentLoaded", () => {
       linha.classList.add("item")
       if (item.label === "Base Atual") linha.classList.add("highlight-base")
       linha.innerHTML = `
-          <span>${item.label}</span>
-          <span>${formatter.format(item.value)}</span>
-        `
+        <span>${item.label}</span>
+        <span>${formatter.format(item.value)}</span>
+      `
       resultados.appendChild(linha)
     })
-
-    document.querySelector(".print-control").style.display = "block"
 
     // Totais e descontos
     const linhaBruta = document.createElement("div")
     linhaBruta.classList.add("item")
     linhaBruta.innerHTML = `
-        <strong>Total Bruto</strong>
-        <strong>${formatter.format(totalBruto)}</strong>
-      `
+      <strong>Total Bruto</strong>
+      <strong>${formatter.format(totalBruto)}</strong>
+    `
     resultados.appendChild(linhaBruta)
 
     // Total Líquido
     const linhaLiquida = document.createElement("div")
     linhaLiquida.classList.add("item", "total-liquido")
     linhaLiquida.innerHTML = `
-        <strong>Total Líquido</strong>
-        <strong>${formatter.format(totalLiquido)}</strong>
-      `
+      <strong>Total Líquido</strong>
+      <strong>${formatter.format(totalLiquido)}</strong>
+    `
     resultados.appendChild(linhaLiquida)
 
     // Descontos detalhados
@@ -226,9 +223,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const div = document.createElement("div")
       div.classList.add("item")
       div.innerHTML = `
-          <span>${d.label}</span>
-          <span>${formatter.format(d.value)}</span>
-        `
+        <span>${d.label}</span>
+        <span>${formatter.format(d.value)}</span>
+      `
       resultados.appendChild(div)
     })
 
@@ -237,25 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const linhaDescontos = document.createElement("div")
     linhaDescontos.classList.add("item", "total-descontos")
     linhaDescontos.innerHTML = `
-        <strong>Total Descontos</strong>
-        <strong>${formatter.format(totalDescontos)}</strong>
-      `
+      <strong>Total Descontos</strong>
+      <strong>${formatter.format(totalDescontos)}</strong>
+    `
     resultados.appendChild(linhaDescontos)
   })
-  // === Bloco de impressão (com data/hora) ===
-  const printBtn = document.getElementById("print-btn")
-  printBtn.addEventListener("click", () => {
-    if (confirm("Deseja imprimir o relatório de remuneração?")) {
-      // preenche data e hora
-      const now = new Date()
-      const date = now.toLocaleDateString("pt-BR")
-      const time = now.toLocaleTimeString("pt-BR")
-      document.getElementById(
-        "print-date"
-      ).textContent = `Data de Impressão: ${date} ${time}`
-
-      window.print()
-    }
-  })
-  // === Fim do bloco de impressão ===
 })
